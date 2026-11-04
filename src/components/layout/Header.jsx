@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Menu } from "lucide-react";
 
@@ -5,6 +6,8 @@ const APP_URL = "https://app.xeroos.com/";
 const QUOTE_URL = "https://9xero.com/free-quote";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#373737] bg-[#1b1b1b]/95 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
@@ -39,15 +42,58 @@ export default function Header() {
           >
             Get started <ArrowUpRight size={16} />
           </a>
-          <a
-            href={APP_URL}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
             className="grid size-10 place-items-center rounded-xl border border-[#373737] text-[#d0d0d0] md:hidden"
-            aria-label="Sign in to XeroOS"
+            aria-label="Toggle mobile menu"
+            aria-expanded={menuOpen}
           >
             <Menu size={20} />
-          </a>
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="border-t border-[#373737] bg-[#242424] px-5 py-4 md:hidden">
+          <nav className="space-y-1">
+            <a
+              href="/#platform"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-[#d0d0d0] hover:bg-[#2b2b2b]"
+            >
+              Platform
+            </a>
+            <a
+              href="/#solutions"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-[#d0d0d0] hover:bg-[#2b2b2b]"
+            >
+              Solutions
+            </a>
+            <a
+              href="/#how-it-works"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-[#d0d0d0] hover:bg-[#2b2b2b]"
+            >
+              How it works
+            </a>
+            <Link
+              to="/pricing"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-sm font-medium text-[#d0d0d0] hover:bg-[#2b2b2b]"
+            >
+              Pricing
+            </Link>
+          </nav>
+          <a
+            href={APP_URL}
+            className="mt-3 block rounded-full bg-[#ffd400] px-5 py-3 text-center text-sm font-bold text-black hover:bg-[#eac300]"
+          >
+            Sign in
+          </a>
+        </div>
+      )}
     </header>
   );
 }
