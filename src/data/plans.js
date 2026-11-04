@@ -1,0 +1,60 @@
+export const plans = [
+  {
+    name: "Core",
+    monthly: 99,
+    annual: 990,
+    setup: 199,
+    contacts: "10,000",
+    workflows: 5,
+    users: 10,
+    description: "The essentials to organize your sales process.",
+    features: [
+      "10,000 CRM contacts",
+      "Up to 10 users",
+      "5 active workflows",
+      "Core CRM and sales pipeline",
+      "Managed setup not included",
+    ],
+  },
+  {
+    name: "Growth",
+    monthly: 199,
+    annual: 1990,
+    setup: 999,
+    contacts: "25,000",
+    workflows: 20,
+    users: "Unlimited",
+    description: "More automation and flexibility for growing teams.",
+    features: [
+      "25,000 CRM contacts",
+      "Unlimited users",
+      "20 active workflows",
+      "3 standard managed workflows",
+      "Optional AI agent add-on",
+    ],
+    popular: true,
+  },
+  {
+    name: "Pro",
+    monthly: 299,
+    annual: 2990,
+    setup: 1999,
+    contacts: "100,000",
+    workflows: 50,
+    users: "Unlimited",
+    description: "Advanced capabilities for established teams.",
+    features: [
+      "100,000 CRM contacts",
+      "Unlimited users",
+      "50 active workflows",
+      "5 standard + 2 advanced managed workflows",
+      "1 AI agent included",
+    ],
+  },
+];
+
+export const customPlan = {
+  name: "Custom",
+  monthly: 499,
+  description: "Tailored for complex sales operations and larger teams.",
+};
